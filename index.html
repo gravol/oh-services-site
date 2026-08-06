@@ -67,6 +67,9 @@
   .btn-dark { background: #1c1c1e; color: #fff; }
   .btn-dark:hover { background: #2e2e30; }
 
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-row input { min-width: 0; }
+
   .area { padding: 70px 0; text-align: center; }
   .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
   .tag { border: 2px solid #3a3a3c; color: #c7c7cc; padding: 8px 18px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -82,6 +85,7 @@
     .grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     footer .container { flex-direction: column; gap: 14px; }
+    .form-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -184,7 +188,7 @@
       <h2 class="section-title" style="text-align:center">Tell us about the job</h2>
       <p style="color:#9c9ca1;font-size:15px;text-align:center;margin-bottom:34px">Fill this out and it lands straight in our inbox — we'll get back to you to book a look.</p>
       <form style="display:flex;flex-direction:column;gap:16px" action="mailto:info@o-hservices.ca" method="post" enctype="text/plain">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="form-row">
           <input required placeholder="Your name" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
           <input required placeholder="Phone number" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
         </div>
