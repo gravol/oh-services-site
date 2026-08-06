@@ -67,8 +67,11 @@
   .btn-dark { background: #1c1c1e; color: #fff; }
   .btn-dark:hover { background: #2e2e30; }
 
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-row input { min-width: 0; }
+  .contact-btns { display: flex; flex-direction: column; gap: 14px; max-width: 420px; margin: 0 auto; }
+  .contact-btn { display: block; padding: 18px 24px; font-weight: 800; font-size: 17px; text-align: center; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; background: #ff6b00; color: #1c1c1e; }
+  .contact-btn:hover { background: #ff8534; }
+  .contact-btn-ghost { background: transparent; border: 2px solid #3a3a3c; color: #d4d4d4; }
+  .contact-btn-ghost:hover { border-color: #ff6b00; color: #ff6b00; }
 
   .area { padding: 70px 0; text-align: center; }
   .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
@@ -85,7 +88,6 @@
     .grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
     footer .container { flex-direction: column; gap: 14px; }
-    .form-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -184,30 +186,14 @@
 
   <section id="contact-form" style="padding:70px 0;background:#232325">
     <div class="container" style="max-width:640px">
-      <div class="section-label" style="text-align:center">Request an Estimate</div>
-      <h2 class="section-title" style="text-align:center">Tell us about the job</h2>
-      <p style="color:#9c9ca1;font-size:15px;text-align:center;margin-bottom:34px">Fill this out and it lands straight in our inbox — we'll get back to you to book a look.</p>
-      <form style="display:flex;flex-direction:column;gap:16px" action="mailto:info@o-hservices.ca" method="post" enctype="text/plain">
-        <div class="form-row">
-          <input required placeholder="Your name" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
-          <input required placeholder="Phone number" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
-        </div>
-        <input required type="email" placeholder="Email" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
-        <input placeholder="Address / building (city is fine)" style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0">
-        <select required style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#c7c7cc;font-size:15px;border-radius:0">
-          <option value="">What do you need?</option>
-          <option>EV charger install</option>
-          <option>Panel upgrade / service work</option>
-          <option>Strata / property maintenance</option>
-          <option>Lighting or controls</option>
-          <option>Troubleshooting / fault finding</option>
-          <option>Renovation / new build wiring</option>
-          <option>Something else</option>
-        </select>
-        <textarea required rows="4" placeholder="Briefly describe the job..." style="padding:13px 16px;background:#141416;border:2px solid #3a3a3c;color:#e8e8e8;font-size:15px;border-radius:0;font-family:inherit;resize:vertical"></textarea>
-        <button type="submit" style="background:#ff6b00;color:#1c1c1e;border:none;padding:16px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:1px;cursor:pointer">Send Request →</button>
-        <span style="font-size:12px;color:#7c7c80;text-align:center">Sends to info@o-hservices.ca — no account needed, we just reply by phone or email.</span>
-      </form>
+      <div class="section-label" style="text-align:center">Get In Touch</div>
+      <h2 class="section-title" style="text-align:center">Call for an estimate</h2>
+      <p style="color:#9c9ca1;font-size:15px;text-align:center;margin-bottom:34px">We'll come take a look and give you an honest estimate. Call either of us, or email — we'll get back to you to book a look.</p>
+      <div class="contact-btns">
+        <a href="tel:+16043740454" class="contact-btn">📞 Jeff — (604) 374-0454</a>
+        <a href="tel:+16047883864" class="contact-btn">📞 Chris — (604) 788-3864</a>
+        <a href="mailto:info@o-hservices.ca" class="contact-btn contact-btn-ghost">✉️ info@o-hservices.ca</a>
+      </div>
     </div>
   </section>
 
