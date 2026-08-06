@@ -73,6 +73,7 @@
 
   footer { background: #141416; padding: 40px 0; border-top: 3px solid #ff6b00; color: #7c7c80; font-size: 13px; }
   footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  footer div { overflow-wrap: anywhere; }
   footer strong { color: #d4d4d4; }
 
   @media (max-width: 800px) {
@@ -80,6 +81,7 @@
     .hero h1 { font-size: 32px; }
     .grid { grid-template-columns: 1fr; }
     nav ul { display: none; }
+    footer .container { flex-direction: column; gap: 14px; }
   }
 </style>
 </head>
@@ -208,7 +210,7 @@
   <footer>
     <div class="container">
       <div><strong>O&amp;H SERVICES</strong><br>Licensed · Bonded · Red Seal</div>
-      <div>Jeff Ovington: (604) 374-0454<br>Chris Ovington: (604) 788-3864<br>✉️ info@o-hservices.ca</div>
+      <div>Jeff Ovington: <a href="tel:+16043740454" style="color:#ff6b00;text-decoration:none">(604) 374-0454</a><br>Chris Ovington: <a href="tel:+16047883864" style="color:#ff6b00;text-decoration:none">(604) 788-3864</a><br>✉️ <a href="mailto:info@o-hservices.ca" style="color:#ff6b00;text-decoration:none">info@o-hservices.ca</a></div>
       <div>© 2026 O&amp;H Services · Lower Mainland, BC</div>
     </div>
   </footer>
