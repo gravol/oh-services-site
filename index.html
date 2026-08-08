@@ -73,6 +73,33 @@
   .contact-btn-ghost { background: transparent; border: 2px solid #3a3a3c; color: #d4d4d4; }
   .contact-btn-ghost:hover { border-color: #ff6b00; color: #ff6b00; }
 
+  /* Estimate popup (three contact options) */
+  .estimate-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(12,12,14,0.88);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .estimate-overlay.open { display: flex; }
+  .estimate-modal {
+    background: #232325; border: 2px solid #3a3a3c;
+    width: 100%; max-width: 400px; padding: 28px 24px 24px;
+    position: relative;
+  }
+  .estimate-modal h3 {
+    color: #fff; font-size: 20px; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+  }
+  .estimate-modal .modal-sub { color: #9c9ca1; font-size: 14px; margin-bottom: 20px; }
+  .estimate-close {
+    position: absolute; top: 8px; right: 14px;
+    background: none; border: none; color: #8a8a8e;
+    font-size: 22px; font-weight: 700; cursor: pointer; line-height: 1; padding: 4px;
+  }
+  .estimate-close:hover { color: #ff6b00; }
+  .estimate-modal .contact-btn { margin-bottom: 12px; }
+  .estimate-modal .contact-btn:last-child { margin-bottom: 0; }
+
   .area { padding: 70px 0; text-align: center; }
   .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
   .tag { border: 2px solid #3a3a3c; color: #c7c7cc; padding: 8px 18px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -103,7 +130,7 @@
         <li><a href="#area">Area</a></li>
         <li><a href="#contact-form">Contact</a></li>
       </ul>
-      <a href="#contact-form" class="nav-cta">Get an Estimate</a>
+      <a href="#contact-form" class="nav-cta js-estimate-popup">Get an Estimate</a>
     </div>
   </nav>
 
@@ -114,7 +141,7 @@
         <h1>Power done <em>right</em>.</h1>
         <p>Electrical contracting for the Lower Mainland.</p>
         <div class="hero-btns">
-          <a href="#contact-form" class="btn btn-primary">Request an Estimate →</a>
+          <a href="#contact-form" class="btn btn-primary js-estimate-popup">Request an Estimate →</a>
         </div>
       </div>
       <div class="hero-side">
@@ -180,7 +207,7 @@
     <div class="container">
       <h2>Need power done right?</h2>
       <p>Tell us what you're dealing with — we'll come take a look and give you an honest estimate.</p>
-      <a href="#contact-form" class="btn btn-dark">Request an Estimate →</a>
+      <a href="#contact-form" class="btn btn-dark js-estimate-popup">Request an Estimate →</a>
     </div>
   </section>
 
@@ -204,5 +231,29 @@
       <div>© 2026 O&amp;H Services · Lower Mainland, BC</div>
     </div>
   </footer>
+  <div class="estimate-overlay" id="estimate-popup" role="dialog" aria-modal="true" aria-labelledby="estimate-popup-title">
+    <div class="estimate-modal">
+      <button class="estimate-close" id="estimate-popup-close" aria-label="Close">✕</button>
+      <h3 id="estimate-popup-title">Request an estimate</h3>
+      <p class="modal-sub">Call either of us, or email — we'll get back to you to book a look.</p>
+      <a href="tel:+16043740454" class="contact-btn">📞 Jeff — (604) 374-0454</a>
+      <a href="tel:+16047883864" class="contact-btn">📞 Chris — (604) 788-3864</a>
+      <a href="mailto:info@o-hservices.ca" class="contact-btn contact-btn-ghost">✉️ info@o-hservices.ca</a>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var overlay = document.getElementById('estimate-popup');
+    var closeBtn = document.getElementById('estimate-popup-close');
+    function open(){ overlay.classList.add('open'); }
+    function close(){ overlay.classList.remove('open'); }
+    document.querySelectorAll('.js-estimate-popup').forEach(function(btn){
+      btn.addEventListener('click', function(e){ e.preventDefault(); open(); });
+    });
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  })();
+  </script>
 </body>
 </html>
